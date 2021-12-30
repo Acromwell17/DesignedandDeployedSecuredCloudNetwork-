@@ -1,0 +1,64 @@
+## Activity File: Exploring Kibana
+
+* You are a DevOps professional and have set up monitoring for one of your web servers. You are collecting all sorts of web log data and it is your job to review the data regularly to make sure everything is running smoothly. 
+
+* Today, you notice something strange in the logs and you want to take a closer look.
+
+* Your task: Explore the web server logs to see if there's anything unusual. Specifically, you will:
+
+:warning: **Heads Up**: These sample logs are specific to the time you view them. As such, your answers will be different from the answers provided in the solution file. 
+
+---
+
+### Instructions
+
+1. Add the sample web log data to Kibana.
+
+2. Answer the following questions:
+
+    - In the last 7 days, how many unique visitors were located in India?
+		247
+
+    - In the last 24 hours, of the visitors from China, how many were using Mac OSX?
+		13
+
+    - In the last 2 days, what percentage of visitors received 404 errors? How about 503 errors?
+		17 , 21
+    - In the last 7 days, what country produced the majority of the traffic on the website?
+		China
+    - Of the traffic that's coming from that country, what time of day had the highest amount of activity?
+		12pm - 4pm
+    - List all the types of downloaded files that have been identified for the last 7 days, along with a short description of each file type (use Google if you aren't sure about a particular file type).
+		gz - an archive file compressed by the standard GNU zip compression algorithm
+		zip - a compressed folders format
+		css - a file that describes how HTML elements are displayed on the screen
+		deb - a deb file is a stardard Unix archive that contains to bzipped or gzipped archives, one for installer control information and another for the actual installable data.
+		rpm -  rpm is a Red Hat Package Manager file that's used to store installation packages on Linux operating system
+
+3. Now that you have a feel for the data, Let's dive a bit deeper. Look at the chart that shows Unique Visitors Vs. Average Bytes.
+     - Locate the time frame in the last 7 days with the most amount of bytes (activity).
+     - In your own words, is there anything that seems potentially strange about this activity?
+		There are two file types associated, deb and gz.  There are 5 unique visitors but only 4 metrics recorded for average bytes.
+
+4. Filter the data by this event.
+     - What is the timestamp for this event? 12-30-2021 3:15 
+     - What kind of file was downloaded? deb gz
+     - From what country did this activity originate? USA
+     - What HTTP response codes were encountered by this visitor? 503 error and 200
+
+5. Switch to the Kibana Discover page to see more details about this activity.
+     - What is the source IP address of this activity? 207.242.87.17
+     - What are the geo coordinates of this activity? "lat": 38.00675111,"lon": -88.93441528
+     - What OS was the source machine running? ios
+     - What is the full URL that was accessed? https://elastic-elastic-elastic.org/people/type:astronauts/name:elliot-see/profile
+     - From what website did the visitor's traffic originate? http://facebook.com/warning/paul-scully-power
+
+6. Finish your investigation with a short overview of your insights. 
+
+     - What do you think the user was doing? The user was attempting to look up a profile of another facebook user.
+     - Was the file they downloaded malicious? If not, what is the file used for? There was no file downloaded, only a request to view another users profile
+     - Is there anything that seems suspicious about this activity? The source URL had a warning listed in it, this could mean the user who was requesting could be violating facebooks compliance and terms of uss in some way.
+     - Is any of the traffic you inspected potentially outside of compliance guidlines? Not necessarily, but this could be monitored more, and the user's account could be investigated to view why there was  a warning issued.
+
+---
+© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.  
